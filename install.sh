@@ -6,7 +6,7 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC_DIR="$REPO_DIR/src"
 
 DEST_DIR="/usr/share/themes"
-THEME_NAME="Materia"
+THEME_NAME="Serene"
 COLOR_VARIANTS=('' '-dark' '-light')
 SIZE_VARIANTS=('' '-compact')
 
