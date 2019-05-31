@@ -70,7 +70,7 @@ install() {
   echo "Installing '$THEME_DIR'..."
 
   mkdir -p                                                                      "$THEME_DIR"
-  cp -r "$REPO_DIR/COPYING"                                                     "$THEME_DIR"
+  cp -r "$REPO_DIR/LICENSE"                                                     "$THEME_DIR"
   cp -r "$SRC_DIR/index$color$size.theme"                                       "$THEME_DIR/index.theme"
 
   mkdir -p                                                                      "$THEME_DIR/chrome"
