@@ -1,0 +1,263 @@
+/*********
+ * Tilix *
+ *********/
+overlay > revealer {
+  &.left > scrolledwindow.frame,
+  &.right > scrolledwindow.frame {
+    border-style: none;
+    box-shadow: $shadow-4;
+  }
+
+  &.left > scrolledwindow.frame { margin-right: 32px; }
+
+  &.right > scrolledwindow.frame { margin-left: 32px; }
+}
+
+.terminix-session-sidebar, // for backward compatibility
+.tilix-session-sidebar { background-image: image($surface); }
+
+.terminal-titlebar button { border-radius: 0; }
+
+button.image-button.session-new-button { min-width: $medium-size - 4px; }
+
+
+/**************
+ * Terminator *
+ **************/
+.terminator-terminal-window {
+  paned > separator { background-color: $background; }
+
+  // this should be fixed by the upstream
+  notebook.frame { border-style: none; }
+}
+
+
+/*************
+ * Ubitquity *
+ *************/
+#live_installer .menubar progressbar trough {
+  border-radius: 4px; // Adjust to hard-coded progress border-radius
+  background-color: $titlebar-track-disabled;
+}
+
+
+/***********
+ * Eclipse *
+ ***********/
+window.background > box.vertical > scrolledwindow > widget toolbar {
+  padding: 2px;
+
+  separator,
+  button { margin: 2px; }
+
+  button { border-radius: $corner-radius; }
+}
+
+
+/************
+ * Chromium *
+ ************/
+window.background.chromium {
+  background-color: if($variant == 'light', $background, $surface);
+
+  // FIXME: no way to change the toolbar button colors only
+  // toolbar button { color: $text-secondary; }
+
+  // toolbar's border-bottom refers to button's border
+  entry,
+  > button:not(.suggested-action):not(.destructive-action) { border: 1px solid $border-alt; }
+
+  > button {
+    box-shadow: none;
+    background-size: auto;
+
+    &:hover { background-image: image($overlay-hover); }
+
+    &:active { background-image: image($overlay-checked); }
+  }
+
+  // workaround for headerbar's non-animatable buttons
+  headerbar button:active { background-size: 1000% 1000%; }
+
+  spinner { color: $primary; }
+
+  // entry uses this as well
+  textview { background-color: $surface; }
+}
+
+tooltip.background.chromium { background-color: rgba($tooltip, 1); }
+
+
+/***********
+ * Firefox *
+ ***********/
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $border-alt; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $border-alt; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $border-alt;
+      border-radius: $corner-radius;
+      box-shadow: none;
+    }
+
+    > entry {
+      min-height: 32px - 2px;
+      background-color: $base;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: inset 0 0 0 1px $primary;
+      }
+
+      &:disabled { background-color: $base-alt; }
+    }
+
+    > button > button {
+      padding: 4px 8px;
+      background-size: auto;
+      // color: $fg_color;
+
+      &:hover { background-image: image($overlay-hover); }
+
+      &:active { background-image: image($overlay-checked); }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+
+    > radiobutton > radio { @extend %small_radio; }
+
+    // make check/radio visible regardless of whether the background is bright or dark
+    > checkbutton > check:not(:checked),
+    > radiobutton > radio:not(:checked) {
+      color: $grey-600;
+
+      &:hover, &:active { color: $grey-900; }
+
+      &:disabled { color: rgba($grey-600, 0.5); }
+    }
+  }
+
+  // remove ugly border around the menus
+  > window > menu,
+  > menu > menu { border: none; }
+}
+
+// Firefox now uses this for selected items
+text:selected {
+  // use traditional selection style as workaround for Firefox
+  background-color: $primary;
+  color: on($primary);
+}
+
+// for backward compatibility
+window.background:not(.csd) {
+  > widget {
+    > menubar {
+      color: $titlebar-text-secondary;
+
+      &:hover { color: $titlebar-text; }
+
+      &:disabled { color: $titlebar-text-secondary-disabled; }
+    }
+
+    > frame { color: $border-alt; }
+
+    > checkbutton > check,
+    > radiobutton > radio {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  > window.background > menu > separator { color: $divider; }
+}
+
+
+/************
+ * Inkscape *
+ ************/
+#ToolboxCommon {
+  > #AuxToolbox {
+    #StyleSwatch { font-size: smaller; }
+
+    #Kludge { padding: 0; }
+
+    spinbutton,
+    entry { min-height: 32px; }
+
+    button:not(.up):not(.down) {
+      min-height: 24px;
+      min-width: 16px;
+      padding: 4px 8px;
+      border-radius: $corner-radius;
+    }
+
+    spinbutton button { border-width: 4px; }
+  }
+
+  > toolbar.vertical {
+    margin-top: -4px;
+
+    button {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 4px;
+      border-radius: $corner-radius;
+    }
+  }
+}
+
+#CanvasTable {
+  button {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+  }
+
+  #HorizontalScrollbar { border-top: 1px solid $divider; }
+
+  #VerticalScrollbar {
+    &:dir(ltr) { border-left: 1px solid $divider; }
+
+    &:dir(rtl) { border-right: 1px solid $divider; }
+  }
+}
+
+#Canvas_and_Dock {
+  frame > border { border: none; }
+
+  // each canvases' titlebar
+  widget > widget {
+    > button.flat {
+      min-height: 16px;
+      min-width: 16px;
+      padding: 4px;
+    }
+
+    > box.horizontal image { padding: 4px; }
+  }
+
+  // vertical dock buttons
+  box.horizontal > box.vertical > button.flat {
+    min-height: 16px;
+    min-width: 24px;
+    padding: 8px 4px;
+  }
+}
+
+
+/***********
+ * Synapse *
+ ***********/
+box.vertical > widget > widget:selected { @extend %selected_items; }

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Materia",
+  "version": "9",
+  "description": "",
+  "theme": {
+    "images": {
+      "theme_toolbar": "theme_toolbar.png"
+    },
+    "colors": {
+      "frame": [56, 56, 56],
+      "frame_inactive": [48, 48, 48],
+      "frame_incognito": [56, 56, 56],
+      "frame_incognito_inactive": [48, 48, 48],
+      "toolbar": [255, 255, 255],
+      "tab_text": [0, 0, 0, 0.87],
+      "tab_background_text": [255, 255, 255, 0.7],
+      "bookmark_text": [0, 0, 0, 0.87],
+      "ntp_background": [255, 255, 255],
+      "ntp_text": [0, 0, 0, 0.87],
+      "button_background": [0, 0, 0, 0]
+    }
+  }
+}
