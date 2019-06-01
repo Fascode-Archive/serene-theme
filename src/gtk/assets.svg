@@ -17,11 +17,11 @@
     </linearGradient>
 
     <linearGradient id="color-primary-dark">
-      <stop offset="1" stop-color="#4285F4"/>
+      <stop offset="1" stop-color="#00bcd4"/>
     </linearGradient>
 
     <linearGradient id="color-primary-light">
-      <stop offset="1" stop-color="#7BAAF7"/>
+      <stop offset="1" stop-color="#26c6da"/>
     </linearGradient>
 
     <linearGradient id="color-background">
@@ -171,7 +171,7 @@
       <use xlink:href="#base-selectionmode-checkbox" fill="url(#color-surface-dark)"/>
     </g>
     <g id="selectionmode-checkbox-checked-dark" transform="translate(56 72)">
-      <use xlink:href="#base-selectionmode-checkbox" fill="url(#color-primary-dark)"/>
+      <use xlink:href="#base-selectionmode-checkbox" fill="url(#color-primary-light)"/>
       <use xlink:href="#base-selectionmode-checkmark" fill="url(#color-on-primary-dark)"/>
     </g>
   </g>

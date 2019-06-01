@@ -39,7 +39,7 @@
     </linearGradient>
 
     <linearGradient id="color-primary">
-      <stop offset="1" stop-color="#4285F4"/>
+      <stop offset="1" stop-color="#00bcd4"/>
     </linearGradient>
 
     <linearGradient id="color-background">

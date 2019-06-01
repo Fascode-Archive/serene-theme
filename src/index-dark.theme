@@ -1,12 +1,9 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Materia-dark
+Name=Serene-dark
 Comment=A Material Design theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Materia-dark
-MetacityTheme=Materia-dark
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
+GtkTheme=Serene-dark
+MetacityTheme=Serene-dark
